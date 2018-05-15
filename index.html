@@ -628,7 +628,7 @@
                 XMLHttpRequest.prototype.originalSend=XMLHttpRequest.prototype.send;
                 XMLHttpRequest.prototype.send=function(s){
                     this.addEventListener('load',function(){
-                        if (this.called_url.match(/\/page\/\d+/i)) {
+                        if (this.called_url && this.called_url.match(/\/page\/\d+/i)) {
                             set_up_tiles();
                         }
                     },false);

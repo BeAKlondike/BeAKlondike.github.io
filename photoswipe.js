@@ -306,6 +306,8 @@ var self = this;
 var DOUBLE_TAP_RADIUS = 25,
 	NUM_HOLDERS = 3;
 
+var resetTimer;
+
 /**
  * Options
  */
@@ -2881,18 +2883,31 @@ var _getItemAt,
 			return;
 		}
 
-		var safari = false;
-		var ua = navigator.userAgent.toLowerCase();
-		if (ua.indexOf('safari') != -1) {
-		  if (ua.indexOf('chrome') > -1) {
-		  } else {
-		    safari = true;
-		  }
-		}
+		// var safari = false;
+		// var ua = navigator.userAgent.toLowerCase();
+		// if (ua.indexOf('safari') != -1) {
+		//   if (ua.indexOf('chrome') > -1) {
+		//   } else {
+		//     mobilesafari = true;
+		//   }
+		// }
 
-		if(!img && (_options.fromURL || !safari)) {
-			img = item.container.lastChild; // commented out to fix for safari
-		}
+		// _options.fromClick = false;
+		// clearTimeout(resetTimer);
+
+		// resetTimer = setTimeout(function(){
+			// console.log('Check lastChild');
+
+			if(!img) {
+				img = item.container.lastChild;
+			}
+
+			// if(!img && (_options.fromURL || !mobilesafari)) {
+			// 	console.log('Reset to lastChild');
+			// 	img = item.container.lastChild; // commented out to fix for safari
+			// 	_options.fromClick = false;
+			// }
+		// }, 1);
 
 		var w = maxRes ? item.w : Math.round(item.w * item.fitRatio),
 			h = maxRes ? item.h : Math.round(item.h * item.fitRatio);

@@ -2881,7 +2881,16 @@ var _getItemAt,
 			return;
 		}
 
-		if(!img && _options.fromURL) {
+		var safari = false;
+		var ua = navigator.userAgent.toLowerCase();
+		if (ua.indexOf('safari') != -1) {
+		  if (ua.indexOf('chrome') > -1) {
+		  } else {
+		    safari = true;
+		  }
+		}
+
+		if(!img && (_options.fromURL || !safari)) {
 			img = item.container.lastChild; // commented out to fix for safari
 		}
 

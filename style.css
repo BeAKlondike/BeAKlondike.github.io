@@ -304,11 +304,15 @@ article .photo-zoom2 .inner {
 
 .pswp__caption p {
   float: left;
+  max-width: 250px;
+  font-weight: bold;
+  font-size: 11px;
+  margin-top: 15px
 }
 .shopify-product {
   float: right;
 }
-.pswp__caption .shopify-product iframe:nth-child(1) {
+.pswp__caption .shopify-product iframe {
   display: none;
 }
 .pswp__caption .shopify-product iframe:last-child {

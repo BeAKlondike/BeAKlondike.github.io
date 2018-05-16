@@ -513,8 +513,6 @@ $(document).ready(function(){
               size,
               item;
 
-              // console.log('parseThumbnailElements: ', el);
-
           for(var i = 0; i < numNodes; i++) {
 
               figureEl = thumbElements[i]; // <figure> element
@@ -525,8 +523,6 @@ $(document).ready(function(){
               }
 
               linkEl = figureEl.getElementsByClassName('photo-zoom2')[0]; // <a> element
-              // console.log('parseThumbnailElements', linkEl.getAttribute('href'));
-
               // size = linkEl.getAttribute('data-size').split('x');
               // create slide object
               item = {
@@ -691,6 +687,15 @@ $(document).ready(function(){
 
           // Pass data to PhotoSwipe and initialize it
           gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+          var shopifyTimeout;
+
+          gallery.listen('afterChange', function() {
+            // clearTimeout(shopifyTimeout);
+            // shopifyTimeout = window.setTimeout(function(){
+              ShopifyBuyInit( '.pswp__caption .shopify-product' );
+            // }, 200);
+          });
+
 
           gallery.listen('gettingData', function(index, item) {
                   if (item.w < 1 || item.h < 1) { // unknown size
@@ -723,9 +728,6 @@ $(document).ready(function(){
       if(hashData.pid && hashData.gid) {
           openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
           console.log('opened from url');
-          window.setTimeout(function(){
-            ShopifyBuyInit( '.pswp__caption .shopify-product' );
-          }, 250);
 
       }
   };

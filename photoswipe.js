@@ -2883,22 +2883,23 @@ var _getItemAt,
 			return;
 		}
 
-		// var safari = false;
-		// var ua = navigator.userAgent.toLowerCase();
-		// if (ua.indexOf('safari') != -1) {
-		//   if (ua.indexOf('chrome') > -1) {
-		//   } else {
-		//     mobilesafari = true;
-		//   }
-		// }
+
+		var safari = false;
+		var ua = navigator.userAgent.toLowerCase();
+		if (ua.indexOf('safari') != -1) {
+		  if (ua.indexOf('chrome') > -1) {
+		  } else {
+		    safari = true;
+		  }
+		}
 
 		// _options.fromClick = false;
 		// clearTimeout(resetTimer);
 
 		// resetTimer = setTimeout(function(){
-			// console.log('Check lastChild');
+			console.log('Check lastChild');
 
-			if(!img) {
+			if(!img && (!safari || (_options.fromURL))) {
 				img = item.container.lastChild;
 			}
 

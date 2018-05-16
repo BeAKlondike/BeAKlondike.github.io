@@ -2884,12 +2884,16 @@ var _getItemAt,
 		}
 
 
-		var safari = false;
+		var safari = false,
+				mobile = false;
 		var ua = navigator.userAgent.toLowerCase();
 		if (ua.indexOf('safari') != -1) {
 		  if (ua.indexOf('chrome') > -1) {
 		  } else {
 		    safari = true;
+		  }
+			if (ua.indexOf('mobile') > -1) {
+		    mobile = true;
 		  }
 		}
 
@@ -2899,7 +2903,7 @@ var _getItemAt,
 		// resetTimer = setTimeout(function(){
 			console.log('Check lastChild');
 
-			if(!img && (!safari || (_options.fromURL))) {
+			if(!img && (!safari || _options.fromURL || (_options.firstTap && mobile))) {
 				img = item.container.lastChild;
 			}
 

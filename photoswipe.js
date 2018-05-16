@@ -2885,34 +2885,22 @@ var _getItemAt,
 
 
 		var safari = false,
-				mobile = false;
+				mobile = false,
+				chrome = false;
 		var ua = navigator.userAgent.toLowerCase();
 		if (ua.indexOf('safari') != -1) {
-		  if (ua.indexOf('chrome') > -1) {
-		  } else {
-		    safari = true;
-		  }
+			safari = true;
 			if (ua.indexOf('mobile') > -1) {
 		    mobile = true;
 		  }
+			if (ua.indexOf('chrome') > -1) {
+		    chrome = true;
+		  }
 		}
 
-		// _options.fromClick = false;
-		// clearTimeout(resetTimer);
-
-		// resetTimer = setTimeout(function(){
-			console.log('Check lastChild');
-
-			if(!img && (!safari || _options.fromURL || (_options.firstTap && mobile))) {
-				img = item.container.lastChild;
-			}
-
-			// if(!img && (_options.fromURL || !mobilesafari)) {
-			// 	console.log('Reset to lastChild');
-			// 	img = item.container.lastChild; // commented out to fix for safari
-			// 	_options.fromClick = false;
-			// }
-		// }, 1);
+		if(!img && (chrome || !safari || (_options.fromURL == true) || (_options.firstTap == true && mobile == true))) {
+			img = item.container.lastChild;
+		}
 
 		var w = maxRes ? item.w : Math.round(item.w * item.fitRatio),
 			h = maxRes ? item.h : Math.round(item.h * item.fitRatio);

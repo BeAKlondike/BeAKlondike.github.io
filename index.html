@@ -34,9 +34,12 @@
     <script src="vendors/modernizr.js"></script>
     <style>
       .apo-header-item img.logo { max-height: 60px; }
+      .apo-background-image-section { background-position: center; background-size: cover; padding-top: 150px; padding-bottom: 150px; }
       .shopify-product { margin: auto; }
       .text-white { color: #ffffff !important; }
       .text-left { text-align: left; }
+      .klondike-header { background-image: url(images/klondike-s1-header.jpg); }
+      .klondike-footer { background-image: url(images/klondike-s1-footer.jpg); }
     </style>
   </head>
   <body>
@@ -54,7 +57,7 @@
     <!-- Site Header-->
     <!-- Site Header-->
     <header id="header" class="apo-header apo-header-dark">
-      <div class="apo-header-section apo-sticky">
+      <div class="apo-header-section apo-fixed">
         <div class="apo-header-component-first">
           <div class="apo-header-items">
             <div class="apo-header-item">
@@ -85,7 +88,8 @@
     <!-- Page Content-->
     <div class="apo-page">
 
-      <div data-parallax="scroll" data-image-src="images/klondike-s1-header.jpg" class="apo-section apo-fullheight-section apo-section-parallax">
+    <!--data-parallax="scroll" data-image-src="images/klondike-s1-header.jpg"  apo-section-parallax -->
+      <div class="apo-section apo-background-image-section klondike-header">
         <div class="container text-white">
           <h4 class="apo-section-title apo-style-3">Be Kind. Be Loyal.</h4>
           <h1 class="apo-style-3">Be a Klondike.</blockquote>
@@ -531,7 +535,7 @@
         </div-->
 
       </div>
-      <div data-parallax="scroll" data-image-src="images/klondike-s1-footer.jpg" class="apo-section apo-fullheight-section apo-section-parallax">
+      <div class="apo-section apo-background-image-section klondike-footer">
         <div class="container text-white text-left">
           <h2 class="apo-section-title apo-style-4">About Jack Douglass (jacksfilms)</h2>
           <p>Jack is the proud daddy of Klondike. He lives with his lovely wife Erin and their two dogs Klondike and Sundae (but Klondike is the good one).</p>
